@@ -14,7 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-import { AppName } from "../global/definitions";
+import { AppName, lineClamp } from "../global/definitions";
 import { Add } from "@mui/icons-material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { NoteListType } from "../global/data";
@@ -53,7 +53,7 @@ export default function PenGallery({ data }: PenGalleryProps) {
         <Box
           sx={{
             bgcolor: "background.paper",
-            pt: 8,
+            // pt: 8,
             // pb: 6,
           }}
         >
@@ -170,14 +170,26 @@ export default function PenGallery({ data }: PenGalleryProps) {
                       <Typography gutterBottom variant="h5" component="h2">
                         {item.noteTitle}
                       </Typography>
-                      <Typography>{item.noteDescription}</Typography>
+                      <Typography
+                        sx={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: lineClamp,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {item.noteDescription}
+                      </Typography>
                     </CardContent>
                     <CardActions sx={{ justifyContent: "space-between" }}>
                       <PenInfo identifier={item.id} />
                       <Button
                         size="large"
                         variant="contained"
-                        onClick={() => handleViewClick(`${item.id.toString()}`)}
+                        onClick={() =>
+                          handleViewClick(`${item.id.toString()}/edit`)
+                        }
                         disableElevation
                       >
                         View

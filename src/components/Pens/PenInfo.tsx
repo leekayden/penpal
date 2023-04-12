@@ -8,7 +8,6 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import InfoIcon from '@mui/icons-material/Info';
 import { NoteList } from "../global/data";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -55,8 +54,6 @@ interface PenInfoProps {
 }
 
 export default function PenInfo({ identifier }: PenInfoProps) {
-  const filteredList = NoteList.filter((item) => item.id === identifier);
-
   const item = NoteList[identifier];
 
   const [open, setOpen] = React.useState(false);

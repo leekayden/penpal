@@ -20,6 +20,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { NoteListType } from "../global/data";
 import TextField from "@mui/material/TextField";
 import GridOnIcon from "@mui/icons-material/GridOn";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 interface PenGalleryProps {
   data: NoteListType[];
@@ -117,8 +118,15 @@ export default function PenGallery({ data }: PenGalleryProps) {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Filter by note title"
+                  label="Filter note"
                   variant="filled"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <FilterListIcon />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               )}
             />
@@ -132,57 +140,61 @@ export default function PenGallery({ data }: PenGalleryProps) {
             alignItems="center"
             justifyContent="center"
           >
-            {filteredData.length > 0 ? filteredData.map((item) => (
-              <Grid item key={item.id} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
+            {filteredData.length > 0 ? (
+              filteredData.map((item) => (
+                <Grid item key={item.id} xs={12} sm={6} md={4}>
+                  <Card
                     sx={{
-                      userSelect: "none"
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
-                    image={
-                      item.noteImg
-                        ? item.noteImg
-                        : "https://res.cloudinary.com/kayden/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1677907411/icon-image-not-found-free-vector_bdfcct.jpg"
-                    }
-                    alt={item.noteTitle}
-                    width={263}
-                    height={148}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {item.noteTitle}
-                    </Typography>
-                    <Typography>{item.noteDescription}</Typography>
-                  </CardContent>
-                  <CardActions sx={{ justifyContent: "space-between" }}>
-                    <Button
-                      size="large"
-                      variant="outlined"
-                      onClick={() => handleViewClick(item.id.toString())}
-                    >
-                      View
-                    </Button>
-                    <Button
-                      size="large"
-                      variant="contained"
-                      onClick={() =>
-                        handleViewClick(`pen/edit/${item.id.toString()}`)
+                  >
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        userSelect: "none",
+                      }}
+                      image={
+                        item.noteImg
+                          ? item.noteImg
+                          : "https://res.cloudinary.com/kayden/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1677907411/icon-image-not-found-free-vector_bdfcct.jpg"
                       }
-                      disableElevation
-                    >
-                      View
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            )) : <p>No notes yet!</p>}
+                      alt={item.noteTitle}
+                      width={263}
+                      height={148}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {item.noteTitle}
+                      </Typography>
+                      <Typography>{item.noteDescription}</Typography>
+                    </CardContent>
+                    <CardActions sx={{ justifyContent: "space-between" }}>
+                      <Button
+                        size="large"
+                        variant="outlined"
+                        onClick={() => handleViewClick(item.id.toString())}
+                      >
+                        View
+                      </Button>
+                      <Button
+                        size="large"
+                        variant="contained"
+                        onClick={() =>
+                          handleViewClick(`pen/edit/${item.id.toString()}`)
+                        }
+                        disableElevation
+                      >
+                        View
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))
+            ) : (
+              <p>No notes yet!</p>
+            )}
           </Grid>
         </Container>
       </main>

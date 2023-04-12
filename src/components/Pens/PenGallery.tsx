@@ -121,13 +121,13 @@ export default function PenGallery({ data }: PenGalleryProps) {
                   {...params}
                   label="Filter note"
                   variant="filled"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <FilterListIcon />
-                      </InputAdornment>
-                    ),
-                  }}
+                  // InputProps={{
+                  //   startAdornment: (
+                  //     <InputAdornment position="start">
+                  //       <FilterListIcon />
+                  //     </InputAdornment>
+                  //   ),
+                  // }}
                 />
               )}
             />

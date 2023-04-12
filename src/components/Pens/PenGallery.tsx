@@ -21,7 +21,8 @@ import { NoteListType } from "../global/data";
 import TextField from "@mui/material/TextField";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
+import PenInfo from "./PenInfo";
 
 interface PenGalleryProps {
   data: NoteListType[];
@@ -172,19 +173,11 @@ export default function PenGallery({ data }: PenGalleryProps) {
                       <Typography>{item.noteDescription}</Typography>
                     </CardContent>
                     <CardActions sx={{ justifyContent: "space-between" }}>
-                      <Button
-                        size="large"
-                        variant="outlined"
-                        onClick={() => handleViewClick(item.id.toString())}
-                      >
-                        View
-                      </Button>
+                      <PenInfo identifier={item.id} />
                       <Button
                         size="large"
                         variant="contained"
-                        onClick={() =>
-                          handleViewClick(`pen/edit/${item.id.toString()}`)
-                        }
+                        onClick={() => handleViewClick(`${item.id.toString()}`)}
                         disableElevation
                       >
                         View

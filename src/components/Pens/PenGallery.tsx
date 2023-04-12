@@ -21,6 +21,7 @@ import { NoteListType } from "../global/data";
 import TextField from "@mui/material/TextField";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import InputAdornment from '@mui/material/InputAdornment';
 
 interface PenGalleryProps {
   data: NoteListType[];

@@ -101,7 +101,7 @@ export default function PenGallery({ data }: PenGalleryProps) {
                     variant="outlined"
                     startIcon={<GridOnIcon />}
                     size="large"
-                    disabled
+                    onClick={() => handleViewClick("/pens/list")}
                   >
                     List View
                   </Button>

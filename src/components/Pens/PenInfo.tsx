@@ -67,7 +67,7 @@ export default function PenInfo({ identifier }: PenInfoProps) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen} size="large">
         Details
       </Button>
       <BootstrapDialog

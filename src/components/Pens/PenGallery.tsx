@@ -30,7 +30,7 @@ interface PenGalleryProps {
 
 export default function PenGallery({ data }: PenGalleryProps) {
   const handleViewClick = (route: string) => {
-    window.location.href = `/pens/${route}/edit`;
+    window.location.href = `/pens/${route}`;
   };
   const [selectedOption, setSelectedOption] = useState<{ noteTitle: string }>({
     noteTitle: "", // initial title
@@ -101,7 +101,7 @@ export default function PenGallery({ data }: PenGalleryProps) {
                     variant="outlined"
                     startIcon={<GridOnIcon />}
                     size="large"
-                    onClick={() => handleViewClick("/pens/list")}
+                    onClick={() => handleViewClick("list")}
                   >
                     List View
                   </Button>

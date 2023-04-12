@@ -80,7 +80,7 @@ export default function PenInfo({ identifier }: PenInfoProps) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <InfoIcon /> Pen Information
+            Pen Information
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

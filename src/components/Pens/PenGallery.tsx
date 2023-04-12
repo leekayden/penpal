@@ -120,7 +120,7 @@ export default function PenGallery({ data }: PenGalleryProps) {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Filter note"
+                  label="Filter Pen"
                   variant="filled"
                   // InputProps={{
                   //   startAdornment: (

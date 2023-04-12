@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import InfoIcon from '@mui/icons-material/Info';
 import { NoteList } from "../global/data";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -79,7 +80,7 @@ export default function PenInfo({ identifier }: PenInfoProps) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          Modal title
+          <InfoIcon /> Pen Information
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
